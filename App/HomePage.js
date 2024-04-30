@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         paddingHorizontal: 10,
         color: 'white',
-        backgroundColor: '#333',
+        backgroundColor: '#333333',
         fontFamily: 'Helvetica Neue',
     },
     taskItem: {
