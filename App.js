@@ -26,6 +26,7 @@ export default function App() {
           onPress={() => toggleTaskCompletion(item.id)}
       >
         <Text style={styles.taskText}>{item.name}</Text>
+        <Button title="Expand"/>
       </TouchableOpacity>
   );
 
