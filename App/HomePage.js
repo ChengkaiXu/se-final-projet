@@ -78,6 +78,9 @@ const HomePage = ({ navigation }) => {
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Search')}>
                     <Text style={styles.buttonText}>Go to Search</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('WeeklySchedule')}>
+                    <Text style={styles.buttonText}>Weekly Schedule</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
@@ -158,10 +161,13 @@ const styles = StyleSheet.create({
     },
     tabBar: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         paddingBottom: 20,
         fontFamily: 'Helvetica Neue',
         alignSelf: 'center',
+        width: '40%',
+        position: "absolute",
+        bottom: '5%',
     },
     button: {
         backgroundColor: 'white',
