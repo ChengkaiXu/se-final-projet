@@ -52,7 +52,15 @@ const HomePage = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.dateHeader}>{currentDate.toDateString()}</Text>
+            <View style={styles.dateHeader}>
+                <TouchableOpacity style={styles.button} onPress={() => adjustDay(-1)}>
+                    <Text style={styles.buttonText}>Previous Day</Text>
+                </TouchableOpacity>
+                <Text style={styles.dateHeader}>{currentDate.toDateString()}</Text>
+                <TouchableOpacity style={styles.button} onPress={() => adjustDay(1)}>
+                    <Text style={styles.buttonText}>Next Day</Text>
+                </TouchableOpacity>
+            </View>
             <TextInput
                 style={styles.taskInput}
                 placeholder="Add a new task"
@@ -67,14 +75,8 @@ const HomePage = ({ navigation }) => {
                 keyExtractor={item => item.id}
             />
             <View style={styles.tabBar}>
-                <TouchableOpacity style={styles.button} onPress={() => adjustDay(-1)}>
-                    <Text style={styles.buttonText}>Previous Day</Text>
-                </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Search')}>
                     <Text style={styles.buttonText}>Go to Search</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => adjustDay(1)}>
-                    <Text style={styles.buttonText}>Next Day</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
@@ -89,6 +91,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
     },
     dateHeader: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent:'space-between',
         fontSize: 26,
         fontWeight: 'bold',
         marginBottom: 20,
@@ -105,6 +110,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        width: '66%',
+        alignSelf: 'center',
     },
     taskInput: {
         height: 40,
@@ -115,6 +122,8 @@ const styles = StyleSheet.create({
         color: 'white',
         backgroundColor: '#333333',
         fontFamily: 'Helvetica Neue',
+        width: '66%',
+        alignSelf: 'center',
     },
     taskItem: {
         flexDirection: 'row',
@@ -126,6 +135,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         alignItems: 'center',
         fontFamily: 'Helvetica Neue',
+        width: '66%',
+        alignSelf: 'center',
     },
     taskText: {
         fontSize: 18,
@@ -150,6 +161,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingBottom: 20,
         fontFamily: 'Helvetica Neue',
+        alignSelf: 'center',
     },
     button: {
         backgroundColor: 'white',
@@ -158,6 +170,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         marginBottom: 10,
         fontFamily: 'Helvetica Neue',
+        minWidth: 100,
     },
     buttonText: {
         color: 'black',
