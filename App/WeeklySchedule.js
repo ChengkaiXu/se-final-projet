@@ -58,58 +58,44 @@ const DayTasks = ({schedule, day}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'black',
-    },
-    scheduleContainer: {
-        justifyContent: 'space-between',
-        padding: 10,
-        marginTop: 10,
-        backgroundColor: '#222',
-        borderColor: 'white',
-        borderWidth: 1,
-        alignItems: 'center',
-        fontFamily: 'Helvetica Neue',
-        alignSelf: 'center',
-        width: 300
-    },
-    nameText: {
-        fontSize: 24,
-        color: 'white',
-        flex: 1,
-        fontFamily: 'Helvetica Neue',
-    },
-    taskText: {
-        color: 'white',
-        flex: 1,
+        backgroundColor: '#121212',
+        padding: 20,
     },
     header: {
-        fontSize: 22,
+        fontSize: 24,
         color: 'white',
+        fontWeight: 'bold',
         marginBottom: 20,
     },
-    input: {
-        width: '80%',
-        backgroundColor: '#333',
-        color: 'white',
-        paddingHorizontal: 15,
-        paddingVertical: 10,
+    scheduleContainer: {
+        backgroundColor: '#1e1e1e',
+        padding: 15,
         borderRadius: 10,
-        fontSize: 18,
-        marginBottom: 20,
+        marginBottom: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    nameText: {
+        fontSize: 20,
+        color: 'white',
+        fontWeight: '500',
+    },
+    taskText: {
+        fontSize: 16,
+        color: '#ccc',
+        paddingVertical: 2,
     },
     button: {
         backgroundColor: '#007AFF',
-        paddingVertical: 12,
-        paddingHorizontal: 20,
-        borderRadius: 20,
-        minWidth: 200,
-    },
-    buttonText: {
         color: 'white',
+        padding: 10,
+        borderRadius: 5,
         textAlign: 'center',
-        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 20,
     }
 });
 
