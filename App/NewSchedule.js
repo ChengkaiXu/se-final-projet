@@ -55,58 +55,17 @@ const DaySchedule = ({ day, tasks, addTask }) => {
 const styles= StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        padding: 10,
         backgroundColor: 'black',
     },
-    scheduleContainer: {
-        justifyContent: 'space-between',
-        padding: 10,
-        marginTop: 10,
-        backgroundColor: '#222',
-        borderColor: 'white',
-        borderWidth: 1,
-        alignItems: 'center',
-        fontFamily: 'Helvetica Neue',
-        alignSelf: 'center',
-        width: 300
-    },
-    nameText: {
-        fontSize: 24,
-        color: 'white',
-        flex: 1,
-        fontFamily: 'Helvetica Neue',
-    },
-    taskText: {
-        color: 'white',
-        flex: 1,
-    },
-    header: {
-        fontSize: 22,
-        color: 'white',
-        marginBottom: 20,
-    },
-    input: {
-        width: '80%',
-        backgroundColor: '#333',
-        color: 'white',
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        borderRadius: 10,
-        fontSize: 18,
-        marginBottom: 20,
-    },
     button: {
-        backgroundColor: '#007AFF',
-        paddingVertical: 12,
+        backgroundColor: 'gray',
         paddingHorizontal: 20,
-        borderRadius: 20,
-        minWidth: 200,
-    },
-    buttonText: {
-        color: 'white',
-        textAlign: 'center',
-        fontSize: 16,
+        paddingVertical: 10,
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 10,
     }
 });
 
