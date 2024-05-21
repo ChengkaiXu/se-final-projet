@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {days} from './WeeklySchedule'
 import {Input} from "react-native-elements";
 import {useContext, useState} from "react";
@@ -27,11 +27,11 @@ export default function NewSchedule({ navigation }) {
     }
 
     return (
-        <View>
-        <Input value={name} onChangeText={setName} placeholder={"Schedule Name"}></Input>
+        <ScrollView contentContainerStyle={styles.view}>
+        <Input style={styles.input} value={name} onChangeText={setName} placeholder={"Schedule Name"}></Input>
         <TouchableOpacity style={styles.button} onPress={create}><Text>Create</Text></TouchableOpacity>
         {tasks.map((_, i) => <DaySchedule key={i} day={i} tasks={tasks[i]} addTask={(name) => addTask(i, name)}/>)}
-    </View>);
+    </ScrollView>);
 }
 
 const DaySchedule = ({ day, tasks, addTask }) => {
@@ -43,30 +43,60 @@ const DaySchedule = ({ day, tasks, addTask }) => {
     }
 
     return (
-        <View>
-            <Text>{days[day]}</Text>
-            <Input value={task} onChangeText={setTask} placeholder={"Add task..."} onSubmitEditing={add}></Input>
-            <FlatList data={tasks} renderItem={item => <Text>{item.item.name}</Text>}/>
+        <View style={styles.container} >
+            <Text style={styles.dayHeader}>{days[day]}</Text>
+            <FlatList style={styles.list} data={tasks} renderItem={item => <Text style={styles.taskText} >• {item.item.name}</Text>}/>
+            <Input style={styles.input} value={task} onChangeText={setTask} placeholder={"Add task..."} onSubmitEditing={add}></Input>
         </View>
     );
 }
 
 
-const styles= StyleSheet.create({
+const styles = StyleSheet.create({
+    view: {
+        backgroundColor: '#000', // Dark background for the container
+    },
     container: {
         flex: 1,
+        padding: 20,
+        backgroundColor: '#000', // Dark background for the container
+    },
+    dayHeader: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#fff', // Light color for the text
+        paddingVertical: 10,
+        borderBottomWidth: 1,
+        borderColor: '#444', // Darker border color
+    },
+    list: {
+        flexGrow: 0,
+        maxHeight: 600,
+        backgroundColor: '#222', // Darker background for the list
+        borderColor: '#555', // Adjusted border color
+        borderWidth: 1,
+        borderRadius: 5,
+        marginBottom: 10,
+        minHeight: 100,
+    },
+    taskText: {
+        color: '#ccc', // Light grey color for list items
+        fontSize: 16,
+        padding: 1,
+        marginLeft: 10,
+    },
+    input: {
+        color: '#fff',
+        borderColor: '#555',
+        borderWidth: 1,
+        marginBottom: 20,
         padding: 10,
-        backgroundColor: 'black',
+        borderRadius: 5,
     },
     button: {
-        backgroundColor: 'gray',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        borderRadius: 5,
+        backgroundColor: '#333',
+        padding: 15,
         alignItems: 'center',
-        justifyContent: 'center',
-        marginVertical: 10,
+        borderRadius: 5,
     }
 });
-
-

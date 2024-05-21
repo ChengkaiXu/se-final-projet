@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {View, Text, StyleSheet, Button, FlatList, TouchableOpacity} from 'react-native';
 import {SchedulesContext, TasksDispatchContext} from "../App";
 

@@ -45,7 +45,7 @@ export default function App() {
                 <Stack.Screen name="Home" component={HomePage} />
                 <Stack.Screen name="Search" component={SearchPage} />
                 <Stack.Screen name="WeeklySchedule" component={WeeklySchedule} options={{ title: 'Weekly Schedule' }} />
-                <Stack.Screen name="NewSchedule" component={NewSchedule} />
+                <Stack.Screen name="NewSchedule" component={NewSchedule} options={{ title: 'New Schedule' }}/>
             </Stack.Navigator>
         </NavigationContainer>
                     </SchedulesDispatchContext.Provider>
