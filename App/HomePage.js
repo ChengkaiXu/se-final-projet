@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, createContext, useContext} from 'react';
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
+import {TasksContext, TasksDispatchContext} from "../App";
 
-const HomePage = ({ navigation }) => {
+const HomePage = ({ navigation}) => {
     const [task, setTask] = useState('');
-    const [tasks, setTasks] = useState([]);
+    const tasks = useContext(TasksContext);
+    const dispatch = useContext(TasksDispatchContext);
     const [currentDate, setCurrentDate] = useState(new Date());
 
     useEffect(() => {
@@ -13,18 +15,20 @@ const HomePage = ({ navigation }) => {
     const handleAddTask = () => {
         if (task.trim()) {
             const dateKey = currentDate.toISOString().split('T')[0];
-            const newTask = { id: Date.now().toString(), name: task, completed: false, date: dateKey };
-            setTasks([...tasks, newTask]);
+            dispatch({
+                type: 'add_task',
+                name: task,
+                date: dateKey
+            })
             setTask('');
         }
     };
 
     const toggleTaskCompletion = id => {
-        setTasks(
-            tasks.map(task =>
-                task.id === id ? { ...task, completed: !task.completed } : task
-            )
-        );
+        dispatch({
+            type: 'toggle_task_completion',
+            task: task.id
+        })
     };
 
     const renderItem = ({ item }) => (
@@ -85,6 +89,7 @@ const HomePage = ({ navigation }) => {
         </SafeAreaView>
     );
 };
+
 
 const styles = StyleSheet.create({
     container: {
