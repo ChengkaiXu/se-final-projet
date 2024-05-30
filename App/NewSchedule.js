@@ -54,33 +54,33 @@ const DaySchedule = ({ day, tasks, addTask }) => {
 
 const styles = StyleSheet.create({
     view: {
-        backgroundColor: '#000', // Dark background for the container
+        backgroundColor: '#000',
     },
     container: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#000', // Dark background for the container
+        backgroundColor: '#000',
     },
     dayHeader: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#fff', // Light color for the text
+        color: '#fff',
         paddingVertical: 10,
         borderBottomWidth: 1,
-        borderColor: '#444', // Darker border color
+        borderColor: '#444',
     },
     list: {
         flexGrow: 0,
         maxHeight: 600,
-        backgroundColor: '#222', // Darker background for the list
-        borderColor: '#555', // Adjusted border color
+        backgroundColor: '#222',
+        borderColor: '#555',
         borderWidth: 1,
         borderRadius: 5,
         marginBottom: 10,
         minHeight: 100,
     },
     taskText: {
-        color: '#ccc', // Light grey color for list items
+        color: '#ccc',
         fontSize: 16,
         padding: 1,
         marginLeft: 10,
